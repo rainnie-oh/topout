@@ -43,7 +43,9 @@ pipeline/.venv/bin/python pipeline/build.py 我的记录.csv
 只想单独跑一步也可以：
 `pipeline/importer.py a.csv -o sessions.json`，然后 `pipeline/bake.py sessions.json`
 
-示例数据：`data/sample_sessions.json`（原 `data3.json`），现在仓库里的 `tower.json` 就是用它生成的。
+示例数据：`data/sample_sessions.json`（原 `data3.json`），生成结果提交在 `web/public/data/sample.json`。
+
+`tower.json` 是用你自己的数据生成的，不会进 git（仓库是公开的）；没有它时前端自动用 `sample.json`。
 
 ## 4. 看
 
