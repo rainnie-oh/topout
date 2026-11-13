@@ -300,6 +300,11 @@ export class App {
     const ov = $('poster'), img = $<HTMLImageElement>('poster-img'), dl = $<HTMLAnchorElement>('poster-dl');
     if (this.posterUrl) URL.revokeObjectURL(this.posterUrl);
     this.posterUrl = URL.createObjectURL(blob);
+    img.onload = () => {
+      const long = img.naturalHeight > img.naturalWidth * 16 / 9 + 2;
+      $('poster-hint').textContent = long ? '长图可以上下滑动，长按也能保存' : '长按图片也可以保存';
+      (img.parentElement as HTMLElement).scrollTop = 0;
+    };
     img.src = this.posterUrl; dl.href = this.posterUrl; dl.download = posterName(this.T);
     this.holdButtonShape();
     const sh = $('poster-share');

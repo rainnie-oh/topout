@@ -8,3 +8,5 @@ __pycache__/
 # personal climbing logs stay local (repo is public)
 data/my_*.csv
 data/my_*.json
+# baked from your own data: stays local. A clean clone falls back to data/sample.json
+web/public/data/tower.json
