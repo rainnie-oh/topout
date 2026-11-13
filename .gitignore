@@ -1,0 +1,10 @@
+node_modules/
+web/dist/
+pipeline/.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# personal climbing logs stay local (repo is public)
+data/my_*.csv
+data/my_*.json

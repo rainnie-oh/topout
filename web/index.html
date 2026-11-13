@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0D1A1E">
+<title>Topout 攀岩年度报告</title>
+<meta name="description" content="Your climbing year, stacked.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="safe-probe" aria-hidden="true"></div>
+<main id="frame">
+  <div id="world">
+    <section id="hero">
+      <div class="name-row">
+        <input id="name" data-ui maxlength="14" value="岩友" aria-label="你的名字" autocomplete="off" spellcheck="false"><span class="eyebrow">，</span>
+      </div>
+      <h1 id="hero-title"></h1>
+      <p id="hero-sub"></p>
+      <div class="stats">
+        <div><div class="stat-n" id="stat-sessions"></div><div class="label">次攀岩</div></div>
+        <div><div class="stat-n" id="stat-sends"></div><div class="label">条线</div></div>
+        <div><div class="stat-n" id="stat-max"></div><div class="label">最高等级</div></div>
+      </div>
+    </section>
+    <canvas id="tower" role="img" aria-label="攀岩年度塔"></canvas>
+    <div id="years"></div>
+    <div id="reading" class="tipglass" aria-live="polite">
+      <div id="reading-name"></div><div id="reading-m"></div><div id="reading-date"></div>
+    </div>
+    <div id="tag" class="glass" hidden><span id="tag-text"></span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div>
+    <button id="share" class="icon-btn top-btn" data-ui aria-label="分享"><span class="glass"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/></svg></span></button>
+    <button id="mode" class="icon-btn top-btn" data-ui aria-label="切换到浅色"><span class="glass"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="sun" d="M12 8a4 4 0 1 0 0 8a4 4 0 1 0 0-8z M12 2v2 M12 20v2 M4.93 4.93l1.41 1.41 M17.66 17.66l1.41 1.41 M2 12h2 M20 12h2 M4.93 19.07l1.41-1.41 M17.66 6.34l1.41-1.41"/><path class="moon" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span></button>
+    <div id="tip" class="tipglass" hidden>
+      <div class="tip-row"><div class="tip-grade"><span id="tip-dot"></span><span id="tip-g"></span></div><div id="tip-n"></div></div>
+      <div class="label" id="tip-range"></div>
+    </div>
+    <button id="to-top" class="icon-btn bottom-btn" data-ui aria-label="回到顶部" hidden><span class="glass"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14 M12 20V9 M6 14l6-6 6 6"/></svg></span></button>
+    <div id="seg" class="glass" role="group" aria-label="时间层级">
+      <button data-ui data-level="y">年</button><button data-ui data-level="m">月</button><button data-ui data-level="w">周</button>
+    </div>
+    <div id="toast" class="tipglass" hidden></div>
+  </div>
+</main>
+<div id="poster" role="dialog" aria-modal="true" aria-label="分享海报" hidden>
+  <button id="poster-close" class="icon-btn" type="button" aria-label="关闭"><span class="glass"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></span></button>
+  <div class="poster-sheet">
+    <img id="poster-img" alt="Topout 年度海报">
+    <p class="poster-hint">长按图片也可以保存</p>
+    <a id="poster-dl" class="hold-btn" href="#" download>
+      <svg class="hold-shape" preserveAspectRatio="none" aria-hidden="true"><path id="poster-dl-shape"/></svg><span>保存图片</span>
+    </a>
+    <div class="poster-actions">
+      <button id="poster-share" class="poster-btn" type="button" hidden>分享图片</button>
+      <button id="poster-link" class="poster-btn" type="button">复制链接</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
