@@ -1,4 +1,4 @@
-"""sessions.json  ->  tower.json  (what the web app loads)
+"""sessions.json  ->  mine.json  (what the web app loads)
 
 Drops every hold into a walled container with pymunk, in time order, and
 records each hold's fall so the front end can replay it without running a
@@ -6,7 +6,7 @@ rigid-body sim. Ported from the prototype's phys2.py + build_proto.py.
 
 Deterministic: same input + same seed + same pymunk version = same output.
 
-    python bake.py sessions.json -o ../web/public/data/tower.json
+    python bake.py sessions.json -o ../web/public/data/mine.json
 """
 import argparse, collections, datetime, json, math, os, random, re, sys, time
 import numpy as np, cv2, pymunk
@@ -209,7 +209,7 @@ def bake(sessions, levels='ymw'):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='Bake Topout tower data')
     ap.add_argument('sessions')
-    ap.add_argument('-o', '--out', default=os.path.join(HERE, '..', 'web', 'public', 'data', 'tower.json'))
+    ap.add_argument('-o', '--out', default=os.path.join(HERE, '..', 'web', 'public', 'data', 'mine.json'))
     a = ap.parse_args()
     sessions = json.load(open(a.sessions))
     t = time.time()

@@ -14,15 +14,15 @@ async function start() {
   try {
     // ?data=name loads public/data/name.json (handy for comparing bakes); only plain names are allowed
     const q = new URLSearchParams(location.search).get('data');
-    const name = q && /^[\w-]{1,64}$/.test(q) ? q : 'tower';
-    // tower.json (your own data) is git-ignored; without it, fall back to the committed sample bake
-    const t = (await load(name)) ?? (name === 'tower' ? await load('sample') : null);
+    // default = the mock sample; ?data=mine shows your own bake (mine.json, local only)
+    const name = q && /^[\w-]{1,64}$/.test(q) ? q : 'sample';
+    const t = await load(name);
     if (!t) throw new Error(`no data/${name}.json`);
     new App(withDisplayMpp(t));
   } catch (e) {
     const d = document.createElement('div');
     d.className = 'fatal';
-    d.textContent = '还没有塔的数据。先运行 pipeline/build.py 生成 public/data/tower.json。';
+    d.textContent = `找不到 data/${new URLSearchParams(location.search).get('data') || 'sample'}.json。用 pipeline/build.py 生成。`;
     document.body.appendChild(d);
     console.error(e);
   }

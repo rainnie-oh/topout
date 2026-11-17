@@ -3,7 +3,7 @@
 把攀岩记录变成一座岩点塔。目前这一版能做到：用你自己的数据生成一座真塔，在手机浏览器里看。
 
 ```
-你的记录 (CSV/JSON) ──importer──▶ sessions ──bake (pymunk)──▶ web/public/data/tower.json ──▶ Vite 前端
+你的记录 (CSV/JSON) ──importer──▶ sessions ──bake (pymunk)──▶ web/public/data/mine.json ──▶ Vite 前端
 ```
 
 ## 1. 准备环境（只需一次）
@@ -38,14 +38,14 @@ npm --prefix web install
 pipeline/.venv/bin/python pipeline/build.py 我的记录.csv
 ```
 
-跑一遍几秒钟，输出 `web/public/data/tower.json`。同样的输入、种子和 pymunk 版本，结果是确定的。
+跑一遍几秒钟，输出 `web/public/data/mine.json`。同样的输入、种子和 pymunk 版本，结果是确定的。
 
 只想单独跑一步也可以：
 `pipeline/importer.py a.csv -o sessions.json`，然后 `pipeline/bake.py sessions.json`
 
 示例数据：`data/sample_sessions.json`（原 `data3.json`），生成结果提交在 `web/public/data/sample.json`。
 
-`tower.json` 是用你自己的数据生成的，不会进 git（仓库是公开的）；没有它时前端自动用 `sample.json`。
+默认页面用的是 mock 数据 `sample.json`。你自己的数据生成到 `mine.json`，不进 git（仓库是公开的），打开 `?data=mine` 查看。
 
 ## 4. 看
 

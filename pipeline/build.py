@@ -1,4 +1,4 @@
-"""One step: logs (CSV/JSON, any number) -> web/public/data/tower.json
+"""One step: logs (CSV/JSON, any number) -> web/public/data/mine.json
 
     python pipeline/build.py my_log.csv
     python pipeline/build.py data/sample_sessions.json
@@ -9,7 +9,7 @@ import importer, bake
 
 ap = argparse.ArgumentParser()
 ap.add_argument('inputs', nargs='+')
-ap.add_argument('-o', '--out', default=os.path.join(bake.HERE, '..', 'web', 'public', 'data', 'tower.json'))
+ap.add_argument('-o', '--out', default=os.path.join(bake.HERE, '..', 'web', 'public', 'data', 'mine.json'))
 a = ap.parse_args()
 sessions, rep = importer.load(a.inputs)
 print(rep, file=sys.stderr)
